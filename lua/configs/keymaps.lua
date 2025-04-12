@@ -10,8 +10,7 @@ map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 
-map("n", "<C-b>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
-map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
+map('n', '<leader>e', ':Neotree toggle<CR>', { noremap = true, silent = true })
 
 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "telescope find file" })
 

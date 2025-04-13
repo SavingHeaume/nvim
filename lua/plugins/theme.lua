@@ -16,7 +16,7 @@ local M = {
     event = "VeryLazy",
     config = function()
       require('lualine').setup {
-        options = { theme = 'auto' },
+        options = { theme = 'onedark' },
         sections = {
           lualine_a = { 'mode' },
           lualine_b = { 'branch', 'diff', 'diagnostics' },

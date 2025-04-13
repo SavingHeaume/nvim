@@ -17,3 +17,11 @@ map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "telescope find
 map("n", "<leader>fm", function()
   require("conform").format({ async = true, lsp_fallback = true })
 end, { desc = "Format File" })
+
+map({ "n", "t" }, "<leader>v", function()
+  require("configs.term").toggle { pos = "vertical split", id = "vtoggleTerm" }
+end, { desc = "terminal toggleable vertical term" })
+
+map({ "n", "t" }, "<leader>t", function()
+  require("configs.term").toggle { pos = "below split", id = "htoggleTerm", size = 0.3 }
+end, { desc = "terminal toggleable horizontal term" })

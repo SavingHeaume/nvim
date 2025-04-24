@@ -17,10 +17,10 @@ local M = {
           lua = { "stylua" },
           rust = { "rustfmt" },
         },
-        format_on_save = {
-          timeout_ms = 500,
-          lsp_fallback = true,
-        },
+        -- format_on_save = {
+        --   timeout_ms = 500,
+        --   lsp_fallback = true,
+        -- },
       })
     end
   },
@@ -58,6 +58,12 @@ local M = {
       "hrsh7th/cmp-path",
     },
     config = require("configs.lsp_cmp.cmp")
+  },
+
+  {
+    "folke/trouble.nvim",
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    cmd = "Trouble",
   }
 }
 

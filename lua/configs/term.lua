@@ -35,7 +35,7 @@ function M.toggle(opts)
   -- 如果终端已存在且有效
   if term and api.nvim_buf_is_valid(term.buf) then
     local winid = vim.fn.bufwinid(term.buf)
-    
+
     if winid ~= -1 then
       -- 关闭现有窗口（保留缓冲区）
       api.nvim_win_close(winid, true)
@@ -58,3 +58,4 @@ function M.toggle(opts)
 end
 
 return M
+

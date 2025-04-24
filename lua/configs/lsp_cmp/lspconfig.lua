@@ -2,7 +2,7 @@ local fn = function()
   vim.diagnostic.config({
     virtual_text = true, -- 行内显示错误
     signs = true,        -- 行号旁显示标记
-    update_in_insert = true,
+    update_in_insert = false,
   })
 
   require("mason").setup()

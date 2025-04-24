@@ -11,6 +11,7 @@ local fn = function()
       "lua_ls",
       "rust_analyzer",
       "pyright",
+      "clangd",
     },
   })
 
@@ -36,6 +37,17 @@ local fn = function()
           Lua = {
             diagnostics = { globals = { "vim" } }
           }
+        }
+      })
+    end,
+    ["clangd"] = function()
+      lspconfig.clangd.setup({
+        cmd = {
+          "clangd",
+          "--all-scopes-completion",
+          "--completion-style=detailed",
+          "--fallback-style=Google",
+          "--clang-tidy",
         }
       })
     end

@@ -33,6 +33,8 @@ local fn = function()
     end,
     ["lua_ls"] = function()
       lspconfig.lua_ls.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
         settings = {
           Lua = {
             diagnostics = { globals = { "vim" } }
@@ -42,6 +44,8 @@ local fn = function()
     end,
     ["clangd"] = function()
       lspconfig.clangd.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
         cmd = {
           "clangd",
           "--background-index",
@@ -54,6 +58,8 @@ local fn = function()
     end,
     ["rust_analyzer"] = function()
       lspconfig.rust_analyzer.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
         settings = {
           ["rust-analyzer"] = {
             check = {

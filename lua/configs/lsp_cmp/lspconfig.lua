@@ -44,10 +44,22 @@ local fn = function()
       lspconfig.clangd.setup({
         cmd = {
           "clangd",
+          "--background-index",
+          "--clang-tidy",
           "--all-scopes-completion",
           "--completion-style=detailed",
-          "--fallback-style=Google",
-          "--clang-tidy",
+          "--fallback-style=llvm",
+        },
+      })
+    end,
+    ["rust_analyzer"] = function()
+      lspconfig.rust_analyzer.setup({
+        settings = {
+          ["rust-analyzer"] = {
+            check = {
+              allTargets = false,
+            }
+          }
         }
       })
     end

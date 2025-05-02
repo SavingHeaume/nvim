@@ -45,6 +45,25 @@ local M = {
       "rcarriga/nvim-notify",
     },
   },
+
+  {
+    'akinsho/bufferline.nvim',
+    event = "VeryLazy",
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    opts = {
+      options = {
+        diagnostics = "nvim_lsp",
+        always_show_bufferline = false,
+        offsets = {
+          {
+            filetype = "neo-tree",
+            text = "Neo-tree",
+          }
+        }
+      }
+    }
+  },
+
 }
 
 return M

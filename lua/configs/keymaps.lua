@@ -37,3 +37,7 @@ end, { desc = "terminal toggleable horizontal term" })
 -- trouble list
 
 map({ "n" }, "<leader>xx", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Diagnostics (Trouble)" })
+
+-- bufferline
+map({"n"}, "<S-h>", "<cmd>BufferLineCyclePrev<cr>", {desc = "Prev Buffer"})
+map({"n"}, "<S-l>", "<cmd>BufferLineCycleNext<cr>", {desc = "Next Buffer"})

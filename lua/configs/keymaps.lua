@@ -22,15 +22,15 @@ map("n", "<leader>fm", function()
 end, { desc = "Format File" })
 
 -- term
-map({ "n", "t" }, "<leader>tv", function()
+map({ "n", "t" }, "<C-t>v", function()
   require("configs.term").toggle { pos = "vsp", id = "vtoggleTerm" }
 end, { desc = "terminal toggleable vertical term" })
 
-map({ "n", "t" }, "<leader>th", function()
+map({ "n", "t" }, "<C-t>h", function()
   require("configs.term").toggle { pos = "sp", id = "htoggleTerm" }
 end, { desc = "terminal toggleable horizontal term" })
 
-map({ "n", "t" }, "<leader>tf", function()
+map({ "n", "t" }, "<C-t>f", function()
   require("configs.term").toggle({ pos = "float", id = "floatTerm" })
 end, {desc = "terminal toggleable float term"})
 

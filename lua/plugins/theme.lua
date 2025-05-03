@@ -59,7 +59,7 @@ local M = {
             filetype = "neo-tree",
             text = "Neo-tree",
           }
-        }
+        },
       }
     }
   },

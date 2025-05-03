@@ -32,7 +32,7 @@ end, { desc = "terminal toggleable horizontal term" })
 
 map({ "n", "t" }, "<C-t>f", function()
   require("configs.term").toggle({ pos = "float", id = "floatTerm" })
-end, {desc = "terminal toggleable float term"})
+end, { desc = "terminal toggleable float term" })
 
 -- trouble list
 map({ "n" }, "<leader>xx", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Diagnostics (Trouble)" })
@@ -40,3 +40,5 @@ map({ "n" }, "<leader>xx", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Diag
 -- bufferline
 map({ "n" }, "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
 map({ "n" }, "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
+map({ "n" }, "<leader>bc", ":bdelete %<cr>", { desc = "close current buffer" })
+map({ "n" }, "<leader>bp", "<cmd>BufferLinePickClose<cr>", { desc = "pick close" })

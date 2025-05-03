@@ -66,6 +66,16 @@ local M = {
       }
     }
   },
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+    main = "ibl",
+    opts = {
+      indent = { char = "│" },
+      scope = { char = "│" },
+    },
+  },
   {
     'nvimdev/dashboard-nvim',
     event = 'VimEnter',

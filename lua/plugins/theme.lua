@@ -5,7 +5,10 @@ local M = {
     config = function()
       require("onedark").setup {
         -- transparent = true,
-        style = "dark"
+        style = "dark",
+        diagnostics = {
+          background = false,
+        },
       }
       require("onedark").load()
     end,

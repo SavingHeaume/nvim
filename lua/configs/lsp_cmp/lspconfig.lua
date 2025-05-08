@@ -7,8 +7,6 @@ local fn = function()
     update_in_insert = false,
   })
 
-  vim.lsp.inlay_hint.enable()
-
   require("mason").setup()
   require("mason-lspconfig").setup({
     ensure_installed = {
@@ -19,60 +17,50 @@ local fn = function()
     },
   })
 
-  local lspconfig = require("lspconfig")
   local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
   local on_attach = function(client, bufnr)
+    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
     vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr })
   end
 
-  require("mason-lspconfig").setup_handlers({
-    function(server_name)
-      lspconfig[server_name].setup({
-        on_attach = on_attach,
-        capabilities = capabilities
-      })
-    end,
-    ["lua_ls"] = function()
-      lspconfig.lua_ls.setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-        settings = {
-          Lua = {
-            diagnostics = { globals = { "vim" } }
-          }
+  vim.lsp.config("*", {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  })
+
+  vim.lsp.config("lua_ls", {
+    settings = {
+      Lua = {
+        diagnostics = { globals = { "vim", "require" } }
+      }
+    }
+
+  })
+
+  vim.lsp.config("rust_analyzer", {
+    settings = {
+      ["rust-analyzer"] = {
+        check = {
+          allTargets = false,
         }
-      })
-    end,
-    ["clangd"] = function()
-      lspconfig.clangd.setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-        cmd = {
-          "clangd",
-          "--background-index",
-          "--clang-tidy",
-          "--all-scopes-completion",
-          "--completion-style=detailed",
-          "--fallback-style=llvm",
-        },
-      })
-    end,
-    ["rust_analyzer"] = function()
-      lspconfig.rust_analyzer.setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-        settings = {
-          ["rust-analyzer"] = {
-            check = {
-              allTargets = false,
-            }
-          }
-        }
-      })
-    end
+      }
+    }
+
+  })
+
+  vim.lsp.config("clangd", {
+    cmd = {
+      "clangd",
+      "--background-index",
+      "--clang-tidy",
+      "--all-scopes-completion",
+      "--completion-style=detailed",
+      "--fallback-style=llvm",
+    },
   })
 end
 

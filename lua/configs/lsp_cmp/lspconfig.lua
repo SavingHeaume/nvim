@@ -33,6 +33,8 @@ local fn = function()
   })
 
   vim.lsp.config("lua_ls", {
+    on_attach = on_attach,
+    capabilities = capabilities,
     settings = {
       Lua = {
         diagnostics = { globals = { "vim", "require" } }
@@ -42,6 +44,8 @@ local fn = function()
   })
 
   vim.lsp.config("rust_analyzer", {
+    on_attach = on_attach,
+    capabilities = capabilities,
     settings = {
       ["rust-analyzer"] = {
         check = {
@@ -53,6 +57,8 @@ local fn = function()
   })
 
   vim.lsp.config("clangd", {
+    on_attach = on_attach,
+    capabilities = capabilities,
     cmd = {
       "clangd",
       "--background-index",

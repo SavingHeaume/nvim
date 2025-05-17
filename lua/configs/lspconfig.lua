@@ -1,6 +1,5 @@
 local fn = function()
   local x = vim.diagnostic.severity
-
   vim.diagnostic.config({
     virtual_text = { prefix = "" }, -- 行内显示错误
     signs = { text = { [x.ERROR] = "󰅙", [x.WARN] = "", [x.INFO] = "󰋼", [x.HINT] = "󰌵" } }, -- 行号旁显示标记
@@ -17,9 +16,9 @@ local fn = function()
     },
   })
 
-  local capabilities = require("cmp_nvim_lsp").default_capabilities()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-  local on_attach = function(client, bufnr)
+  local on_attach = function(_, bufnr)
     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })

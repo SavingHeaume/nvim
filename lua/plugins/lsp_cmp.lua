@@ -6,7 +6,7 @@ local M = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
     },
-    config = require("configs.lsp_cmp.lspconfig")
+    config = require("configs.lspconfig")
   },
   {
     "stevearc/conform.nvim",
@@ -27,43 +27,61 @@ local M = {
   },
 
   {
-    "L3MON4D3/LuaSnip",
-    dependencies = { "rafamadriz/friendly-snippets" },
-    config = require("configs.lsp_cmp.luasnip")
-  },
+    'saghen/blink.cmp',
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+    version = "1.*",
+    opts = {
+      keymap = { preset = "enter" },
 
-  {
-    "windwp/nvim-autopairs",
-    config = function()
-      require("nvim-autopairs").setup({
-        fast_wrap = {},
-        disable_filetype = { "TelescopePrompt", "vim" },
+      completion = {
+        documentation = {
+          auto_show = true,
+        },
+      },
 
-      })
+      signature = {
+        enabled = true,
+      },
 
-      -- setup cmp for autopairs
-      local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-      require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
-    end,
-  },
-
-  {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    dependencies = {
-      "L3MON4D3/LuaSnip",
-      "windwp/nvim-autopairs",
-      "saadparwaiz1/cmp_luasnip",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
+      cmdline = {
+        completion = {
+          menu = {
+            auto_show = true,
+          },
+        },
+      },
     },
-    config = require("configs.lsp_cmp.cmp")
+  },
+
+  {
+    'saghen/blink.pairs',
+    version = '*',
+    dependencies = 'saghen/blink.download',
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+    opts = {
+      mappings = {
+        enabled = true,
+        pairs = {},
+      },
+      highlights = {
+        enabled = true,
+        groups = {
+          'BlinkPairsOrange',
+          'BlinkPairsPurple',
+          'BlinkPairsBlue',
+        },
+        matchparen = {
+          enabled = true,
+          group = 'MatchParen',
+        },
+      },
+      debug = false,
+    }
   },
 
   {
     "folke/trouble.nvim",
-    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    opts = {},
     cmd = "Trouble",
   }
 }

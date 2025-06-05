@@ -24,7 +24,7 @@ o.smartcase = true
 
 o.number = true
 o.numberwidth = 2
-opt.whichwrap:append "<>[]hl"
+opt.whichwrap:append("<>[]hl")
 
 o.splitbelow = true
 o.splitright = true
@@ -34,17 +34,17 @@ o.updatetime = 250
 
 o.timeoutlen = 400
 o.ruler = false
-opt.shortmess:append "sI"
+opt.shortmess:append("sI")
 
 g.clipboard = {
-  name = 'win32yank',
-  copy = {
-    ['+'] = 'win32yank.exe -i --crlf',
-    ['*'] = 'win32yank.exe -i --crlf',
-  },
-  paste = {
-    ['+'] = 'win32yank.exe -o --lf',
-    ['*'] = 'win32yank.exe -o --lf',
-  },
-  cache_enabled = 0,
+	name = "win32yank",
+	copy = {
+		["+"] = "win32yank.exe -i --crlf",
+		["*"] = "win32yank.exe -i --crlf",
+	},
+	paste = {
+		["+"] = "win32yank.exe -o --lf",
+		["*"] = "win32yank.exe -o --lf",
+	},
+	cache_enabled = 0,
 }

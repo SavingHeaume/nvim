@@ -11,27 +11,27 @@ map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 
 -- neotree
-map('n', '<leader>e', ':Neotree toggle<CR>', { noremap = true, silent = true })
+map("n", "<leader>e", ":Neotree toggle<CR>", { noremap = true, silent = true })
 
 -- telescope
 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "telescope find file" })
 
 -- format
 map("n", "<leader>fm", function()
-  require("conform").format({ async = true, lsp_fallback = true })
+	require("conform").format({ async = true, lsp_fallback = true })
 end, { desc = "Format File" })
 
 -- term
 map({ "n", "t" }, "<C-t>v", function()
-  require("configs.term").toggle { pos = "vsp", id = "vtoggleTerm" }
+	require("configs.term").toggle({ pos = "vsp", id = "vtoggleTerm" })
 end, { desc = "terminal toggleable vertical term" })
 
 map({ "n", "t" }, "<C-t>h", function()
-  require("configs.term").toggle { pos = "sp", id = "htoggleTerm" }
+	require("configs.term").toggle({ pos = "sp", id = "htoggleTerm" })
 end, { desc = "terminal toggleable horizontal term" })
 
 map({ "n", "t" }, "<C-t>f", function()
-  require("configs.term").toggle({ pos = "float", id = "floatTerm" })
+	require("configs.term").toggle({ pos = "float", id = "floatTerm" })
 end, { desc = "terminal toggleable float term" })
 
 -- trouble list

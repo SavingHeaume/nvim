@@ -10,3 +10,18 @@ vim.diagnostic.config({
 })
 
 vim.lsp.inlay_hint.enable()
+
+vim.api.nvim_create_user_command("InstallAllLsp", function()
+	local tools = {
+		"lua-language-server",
+		"clangd",
+		"rust-analyzer",
+
+		"stylua",
+		"clang-format",
+	}
+
+	local mason_cmd = "MasonInstall " .. table.concat(tools, " ")
+
+	vim.cmd(mason_cmd)
+end, {})

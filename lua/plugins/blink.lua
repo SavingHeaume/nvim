@@ -4,7 +4,7 @@ vim.pack.add({
 		version = "v1.10.2",
 	},
 	{ src = "https://github.com/saghen/blink.pairs", version = vim.version.range("*") },
-	"https://github.com/saghen/blink.download",
+  "https://github.com/saghen/blink.lib"
 })
 
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost", "BufNewFile" }, {
@@ -36,6 +36,8 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost", "BufNewFile" }, {
 				default = { "lsp", "path", "snippets", "buffer" },
 			},
 		})
+
+    require("blink.pairs").download():pwait(60000)
 
 		require("blink.pairs").setup({
 			mappings = {
